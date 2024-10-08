@@ -39,9 +39,6 @@ class OptimizedTextCompression:
         print("calculate_log:")
         print(focal_log)
         print(sum(focal_log))
-        plt.bar(range(len(focal_log)), focal_log)
-        plt.ylim(min(focal_log) * 0.98, max(focal_log) * 1.02)
-        plt.show()
 
         l = len(focal_log)
         best_start = 0
@@ -96,12 +93,6 @@ class OptimizedTextCompression:
         else:
             print("Reached maximum iterations without convergence.")
 
-        # 最终绘制结果
-        plt.bar(range(best_start, best_end), focal_log[best_start:best_end])
-        plt.ylim(min(focal_log[best_start:best_end]) * 0.98, max(focal_log[best_start:best_end]) * 1.02)
-        plt.title(f"Final Log from {best_start} to {best_end}")
-        plt.show()
-
         print(best_start, best_end)
         return best_start, best_end
 
@@ -126,9 +117,6 @@ class OptimizedTextCompression:
         # 使用 reranker 计算 chunk_embeddings 的相似度
         # similarities = [self.compute_similarity(query, chunk) for chunk in chunks]
         similarities = self.compute_similarity(query, chunks)
-        plt.bar(range(len(similarities)), similarities)
-        plt.ylim(min(similarities) * 0.98, max(similarities) * 1.02)
-        plt.show()
 
         print("查询相似度", similarities)
         overall_similarity = np.mean(similarities)
