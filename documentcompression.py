@@ -2,8 +2,6 @@
 import numpy as np
 import torch
 from transformers import AutoTokenizer, AutoModel
-import nltk
-from scipy import stats
 import matplotlib.pylab as plt
 from FlagEmbedding import FlagReranker
 
